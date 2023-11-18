@@ -6,7 +6,8 @@ module.exports = {
             colors: {
                 water: "#D1D5DB",
                 midnight: "#1F2937",
-                "alice-blue": "#F9FAFB"
+                "alice-blue": "#F9FAFB",
+                "black-russian": "#111827",
             },
         },
     },

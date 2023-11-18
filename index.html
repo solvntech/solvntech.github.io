@@ -9,48 +9,172 @@
         />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <link rel="stylesheet" href="./dist/style.min.css" />
+        <link rel="stylesheet" href="./src/assets/css/aos.css" />
+        <script src="src/assets/js/vue.global.prod.min.js"></script>
+        <script src="src/assets/js/aos.js"></script>
         <title>Harry's Portfolio</title>
     </head>
-    <body>
-        <div class="h-screen w-screen">
-            <header class="header container mx-auto flex items-center justify-between">
-                <img class="header-icon" src="src/assets/images/icon.png" alt="Icon" />
-                <div class="flex items-center divide-x divide-midnight">
-                    <div class="flex gap-7">
-                        <a class="text-water" href="#Home">Home</a>
-                        <a class="text-water">About</a>
-                        <a class="text-water">Tech Stacks</a>
-                        <a class="text-water">Projects</a>
-                        <a class="text-water pr-7">Contact</a>
+    <body class="h-screen w-full overflow-y-auto overflow-x-hidden">
+        <div id="app">
+            <div data-aos="fade-down" class="header flex items-center">
+                <header class="container px-10 mx-auto flex items-center justify-between">
+                    <img class="header-icon" src="src/assets/images/icon.png" alt="Icon" />
+                    <div class="flex items-center divide-x divide-midnight">
+                        <div class="flex gap-7">
+                            <a class="text-water" href="#home">Home</a>
+                            <a class="text-water" href="#about-me">About</a>
+                            <a class="text-water" href="#skills">Tech Stacks</a>
+                            <a class="text-water">Projects</a>
+                            <a class="text-water pr-7">Contact</a>
+                        </div>
+                        <div class="pl-7 flex items-center gap-5 header-social-media">
+                            <a href="https://github.com/solvntech" target="_blank">
+                                <img src="src/assets/images/github.svg" alt="Github" class="header-social-media-icon" />
+                            </a>
+                            <a href="https://www.linkedin.com/in/nguyen-hai-270898/" target="_blank">
+                                <img
+                                    src="src/assets/images/linkedin.svg"
+                                    alt="Linkedin"
+                                    class="header-social-media-icon"
+                                />
+                            </a>
+                        </div>
                     </div>
-                    <div class="pl-7 flex items-center gap-5 header-social-media">
-                        <a href="https://github.com/solvntech" target="_blank">
-                            <img src="src/assets/images/github.svg" alt="Github" class="header-social-media-icon" />
-                        </a>
-                        <a href="https://www.linkedin.com/in/nguyen-hai-270898/" target="_blank">
-                            <img src="src/assets/images/linkedin.svg" alt="Linkedin" class="header-social-media-icon" />
-                        </a>
-                    </div>
-                </div>
-            </header>
-            <div id="Home" class="home py-24">
-                <div class="container m-auto flex items-center justify-between gap-x-24">
-                    <div class="home-des">
+                </header>
+            </div>
+            <div id="home" class="home py-24">
+                <div class="container px-10 m-auto flex items-center justify-between gap-x-24">
+                    <div data-aos="fade-right" class="home-des">
                         <h1 class="text-h1 text-4xl font-bold text-alice-blue">Hi, I’m Harry 👋</h1>
                         <p class="text-water mt-3">
-                            I'm a full stack developer (React.js & Node.js) with a focus on creating (and occasionally
-                            designing) exceptional digital experiences that are fast, accessible, visually appealing,
-                            and responsive. Even though I have been creating web applications for over 7 years, I still
-                            love it as if it was something new.
+                            I'm a full stack developer (Angular, Vue3, React.js, Node.js, Nestjs) with a focus on
+                            creating (and occasionally designing mockup and system architecture) exceptional digital
+                            experiences that are fast, accessible, visually appealing, and responsive. Even though I
+                            have been creating web applications for over 4 years, I still love it as if it was something
+                            new.
                         </p>
+                        <div class="pt-12 flex flex-col gap-2">
+                            <div class="flex items-center gap-2">
+                                <img src="src/assets/images/location.svg" alt="Location" />
+                                <div class="text-water">Da Nang, Viet Nam</div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-6 h-6 flex justify-center items-center">
+                                    <div class="personal-status"></div>
+                                </div>
+                                <div class="text-water">Available for new projects</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="w-2/5">
-                        <div class="personal-img-wrapper flex justify-center items-center">
+                        <div data-aos="fade-left" class="personal-img-wrapper flex justify-center items-center">
                             <div class="personal-img"></div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div id="about-me" class="py-24 bg-black-russian about-me">
+                <div class="container mx-auto px-10">
+                    <div class="flex justify-center">
+                        <div data-aos="fade-down" class="session-title text-water">About me</div>
+                    </div>
+                    <div class="pt-12">
+                        <h3 class="text-alice-blue text-2xl font-bold" data-aos="fade-right">
+                            Curious about me? Here you have it:
+                        </h3>
+                        <div class="mt-6 flex flex-col gap-4 text-water">
+                            <div class="flex gap-4">
+                                <div class="w-1/2 pr-2" data-aos="fade-right">
+                                    <p class="text-justify">
+                                        I began my journey as a web developer in 2019, and since then, I've continued to
+                                        grow and evolve as a developer, taking on new challenges and learning the latest
+                                        technologies along the way. Now, in my early thirties, 4 years after starting my
+                                        web development journey, I'm building cutting-edge web applications using modern
+                                        technologies such as Angular, Vue, TypeScript, Nestjs, Tailwindcss and much
+                                        more.
+                                    </p>
+                                </div>
+                                <div class="w-1/2 flex flex-col gap-4 pl-2" data-aos="fade-left">
+                                    <p class="text-justify">
+                                        The main of my work is about building CMS, I have about 4 years of experience
+                                        working for a start-up in the US.
+                                    </p>
+                                    <p class="text-justify">
+                                        Learning new languages and technologies is my passion. I always want to help
+                                        people grow in their abilities. I am researching system design
+                                    </p>
+                                </div>
+                            </div>
+                            <p data-aos="fade-right">Finally, some quick bits about me.</p>
+                            <div data-aos="fade-right">
+                                <ul class="list-disc">
+                                    <table>
+                                        <tr>
+                                            <td class="pl-3">
+                                                <li>UI developer (Angular, Vue and React)</li>
+                                            </td>
+                                            <td class="pl-10">
+                                                <li>Get the requirements and transfer</li>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pl-3">
+                                                <li>BE developer (NodeJS, and NestJS)</li>
+                                            </td>
+                                            <td class="pl-10">
+                                                <li>Deployment</li>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pl-3">
+                                                <li>API testing, reporting, and document</li>
+                                            </td>
+                                            <td class="pl-10">
+                                                <li>researching</li>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </ul>
+                            </div>
+                            <p data-aos="fade-right">
+                                One last thing, I'm available for freelance work, so feel free to reach out and say
+                                hello! I promise I don't bite 😉
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="skills" class="py-24">
+                <div class="container mx-auto px-10">
+                    <div data-aos="fade-down">
+                        <div class="flex justify-center">
+                            <div class="session-title text-water">Skills</div>
+                        </div>
+                        <div class="text-alice-blue text-center mt-4">
+                            The skills, tools and technologies I am really good at:
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <script>
+            const { createApp, ref } = Vue;
+
+            createApp({
+                setup() {
+                    const message = ref("Hello vue!");
+                    return {
+                        message,
+                    };
+                },
+            }).mount("#app");
+
+            AOS.init({
+                offset: 20,
+                duration: 600,
+                easing: "ease-in-out-back",
+                delay: 100,
+            });
+        </script>
     </body>
 </html>
