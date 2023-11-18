@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background: #030712;
+}
+
+.header {
+    height: 70px;
+    position: sticky;
+    top: 0;
+    .header-icon {
+        height: 40px;
+    }
+    .header-social-media {
+        .header-social-media-icon {
+            width: 26px !important;
+        }
+    }
+}
+
+.home {
+    .home-des {
+        width: 100%;
+        max-width: 800px;
+    }
+    .personal-img-wrapper {
+        width: 460px;
+        max-width: 100%;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        background: linear-gradient(to bottom, #E70FAA, #00C0FD);
+        .personal-img {
+            position: relative;
+            border-radius: 50%;
+            height: calc(100% - 30px);
+            width: calc(100% - 30px);
+            background-image: url("/src/assets/images/avatar.jpg");
+            background-position: top center;
+            background-size: cover;
+            filter: grayscale(80%);
+        }
+    }
+}
