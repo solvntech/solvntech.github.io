@@ -82,12 +82,29 @@ body {
 
 .projects {
     .project {
-        height: 480px;
         background: #1f2937;
         box-shadow: 0 25px 25px 0 rgba(0, 0, 0, 0.15);
         border-radius: 12px;
+        .develop-by {
+            left: 0;
+            top: 0;
+            background: #adb5bd;
+            padding: 10px;
+            border-radius: 0 0 12px 0;
+            &.reverse {
+                left: auto;
+                right: 0;
+                border-radius: 0 0 0 12px;
+            }
+        }
         .project-review {
             background: #374151;
+            .img {
+                border-radius: 12px;
+                box-shadow:
+                    0 10px 8px 0 rgba(0, 0, 0, 0.04),
+                    0 4px 3px 0 rgba(0, 0, 0, 0.1);
+            }
         }
     }
 }
