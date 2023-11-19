@@ -10,6 +10,10 @@ body {
     background: #030712;
 }
 
+.container {
+    max-width: 1140px !important;
+}
+
 .header {
     height: 70px;
     position: sticky;
