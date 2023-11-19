@@ -24,7 +24,8 @@
                             <a class="text-water" href="#home">Home</a>
                             <a class="text-water" href="#about-me">About</a>
                             <a class="text-water" href="#skills">Tech Stacks</a>
-                            <a class="text-water">Projects</a>
+                            <a class="text-water" href="#experience">Experiences</a>
+                            <a class="text-water" href="#projects">Projects</a>
                             <a class="text-water pr-7">Contact</a>
                         </div>
                         <div class="pl-7 flex items-center gap-5 header-social-media">
@@ -144,33 +145,151 @@
                     </div>
                 </div>
             </div>
-            <div id="skills" class="py-24">
+            <div id="skills" class="py-24 skills">
                 <div class="container mx-auto px-10">
                     <div data-aos="fade-down">
                         <div class="flex justify-center">
                             <div class="session-title text-water">Skills</div>
                         </div>
-                        <div class="text-alice-blue text-center mt-4">
+                        <div class="text-alice-blue text-center mt-3">
                             The skills, tools and technologies I am really good at:
+                        </div>
+                    </div>
+                    <div class="flex gap-6 justify-center pt-12 flex-wrap">
+                        <div
+                            data-aos="fade-right"
+                            :data-aos-delay="200*(index+1)"
+                            v-for="(skill, index) in skills"
+                            class="text-alice-blue skill-item flex flex-col items-center"
+                        >
+                            <img :src="skill.logo" :alt="skill.title" />
+                            <div class="mt-2">{{skill.title}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="experience" class="py-24 bg-black-russian experience">
+                <div class="container mx-auto px-10">
+                    <div data-aos="fade-down">
+                        <div class="flex justify-center">
+                            <div class="session-title text-water">Experience</div>
+                        </div>
+                        <div class="text-alice-blue text-center mt-3">
+                            Here is a quick summary of my most recent experiences:
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-12 mt-12">
+                        <div class="experience-details-item flex overflow-hidden" v-for="experience in experiences">
+                            <div class="company-logo-wrapper w-1/4 p-8" data-aos="fade-right">
+                                <img :src="experience.urlLogoCompany" alt="" class="max-h-9 max-w-full" />
+                            </div>
+                            <div class="w-1/2 p-8" data-aos="fade-down">
+                                <div class="text-2xl text-alice-blue font-bold">{{experience.title}}</div>
+                                <div class="mt-4 flex-col flex gap-3 text-water">
+                                    <div class="flex-col flex gap-1.5" v-for="res in experience.Responsibilities">
+                                        <div v-if="res.field" class="font-bold">{{res.field}}</div>
+                                        <div>
+                                            <ul class="list-disc pl-3.5">
+                                                <li v-for="item in res.details" class="mt-1">{{item}}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-1/4 p-8 text-water" data-aos="fade-left">
+                                <div class="leading-8">{{experience.duration}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="projects" class="py-24 projects">
+                <div class="container mx-auto px-10">
+                    <div data-aos="fade-down">
+                        <div class="flex justify-center">
+                            <div class="session-title text-water">Projects</div>
+                        </div>
+                        <div class="text-alice-blue text-center mt-3">
+                            Some of the noteworthy projects I have built:
+                        </div>
+                    </div>
+                    <div class="mt-12">
+                        <div class="project flex overflow-hidden">
+                            <div class="w-1/2 p-12 project-review"></div>
+                            <div class="w-1/2 p-12 project-summary"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <script>
-            const { createApp, ref } = Vue;
+            const { createApp } = Vue;
 
             createApp({
-                setup() {
-                    const message = ref("Hello vue!");
+                data() {
                     return {
-                        message,
+                        skills: [
+                            { logo: "src/assets/images/skills/js.svg", title: "Javascript" },
+                            { logo: "src/assets/images/skills/typescript.svg", title: "Typescript" },
+                            { logo: "src/assets/images/skills/angular.png", title: "Angular" },
+                            { logo: "src/assets/images/skills/react.png", title: "React" },
+                            { logo: "src/assets/images/skills/vue-js.svg", title: "Vue 3" },
+                            { logo: "src/assets/images/skills/nodejs.svg", title: "NodeJS" },
+                            { logo: "src/assets/images/skills/nestjs.svg", title: "NestJS" },
+                            { logo: "src/assets/images/skills/mongodb.svg", title: "MongoDB" },
+                            { logo: "src/assets/images/skills/postgres.svg", title: "Postgres" },
+                            { logo: "src/assets/images/skills/sass.svg", title: "Sass" },
+                            { logo: "src/assets/images/skills/tailwind-css.svg", title: "Tailwind CSS" },
+                            { logo: "src/assets/images/skills/docker.svg", title: "Docker" },
+                            { logo: "src/assets/images/skills/aws.png", title: "AWS" },
+                            { logo: "src/assets/images/skills/s3.svg", title: "S3 Storage" },
+                        ],
+                        experiences: [
+                            {
+                                urlLogoCompany: "src/assets/images/company-logo/owt.svg",
+                                title: "Md. Software Engineer",
+                                duration: "Mar 2023 - Present",
+                                Responsibilities: [
+                                    {
+                                        field: "Frontend",
+                                        details: [
+                                            "Working on micro-frontend",
+                                            "Setup microservices on local (Backend api)",
+                                        ],
+                                    },
+                                    {
+                                        field: "Backend",
+                                        details: [
+                                            "Discussing solutions and pickup technology from customer requirements",
+                                            "Designing database",
+                                            "I also work with chatGPT API",
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                urlLogoCompany: "src/assets/images/company-logo/atomiton.png",
+                                title: "Md. Frontend Engineer",
+                                duration: "May 2019 - Mar 2023",
+                                Responsibilities: [
+                                    {
+                                        details: [
+                                            "Main angular developer",
+                                            "Get requirements and discuss solution for each sprint",
+                                            "Pick up the task for each sprint",
+                                            "Help backend and design data flow",
+                                            "Write documentation",
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
                     };
                 },
             }).mount("#app");
 
             AOS.init({
-                offset: 20,
+                offset: 0,
                 duration: 600,
                 easing: "ease-in-out-back",
                 delay: 100,
