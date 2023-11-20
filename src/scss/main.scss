@@ -100,6 +100,14 @@ body {
                 right: 0;
                 border-radius: 0 0 0 12px;
             }
+            &.text-logo-wrapper {
+                background: rgba(31, 41, 55, 0.8);
+                .text-logo {
+                    background: linear-gradient(to right, #e70faa, #00c0fd);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            }
         }
         .project-review {
             background: #374151;

@@ -26,7 +26,6 @@
                             <a class="text-water" href="#skills">Tech Stacks</a>
                             <a class="text-water" href="#experience">Experiences</a>
                             <a class="text-water" href="#projects">Projects</a>
-                            <a class="text-water pr-7">Contact</a>
                         </div>
                         <div class="pl-7 flex items-center gap-5 header-social-media">
                             <a href="https://github.com/solvntech" target="_blank">
@@ -131,7 +130,7 @@
                                                 <li>API testing, reporting, and document</li>
                                             </td>
                                             <td class="pl-10">
-                                                <li>researching</li>
+                                                <li>Researching</li>
                                             </td>
                                         </tr>
                                     </table>
@@ -224,8 +223,9 @@
                                 :data-aos="index % 2 === 1 ? 'fade-left' : 'fade-right'"
                             >
                                 <img class="block img w-full max-w-full" :src="project.urlImage" alt="" />
-                                <div class="develop-by absolute" :class="{ reverse: index % 2 === 1 }">
-                                    <img :src="project.developBy" class="h-6" alt="" />
+                                <div class="develop-by absolute" :class="{ reverse: index % 2 === 1, 'text-logo-wrapper': !!project.textDevelopBy }">
+                                    <img v-if="project.developBy" :src="project.developBy" class="h-6" alt="" />
+                                    <div v-else class="font-bold text-logo">{{project.textDevelopBy}}</div>
                                 </div>
                             </div>
                             <div
@@ -234,6 +234,7 @@
                             >
                                 <div class="text-xl text-alice-blue font-bold">{{project.title}}</div>
                                 <div class="mt-4">{{project.des}}</div>
+                                <div class="mt-6"><span class="font-bold mr-2">Team size:</span>{{project.teamSize}} members</div>
                                 <div class="mt-6">
                                     <div class="font-bold">My Responsibilities</div>
                                     <ul class="list-disc mt-2.5 pl-3.5">
@@ -252,6 +253,22 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="bg-black-russian">
+                <footer class="container mx-auto px-10 flex justify-center text-water items-center py-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                        <g clip-path="url(#clip0_327_2145)">
+                            <path d="M8.50016 14.6668C12.1821 14.6668 15.1668 11.6821 15.1668 8.00016C15.1668 4.31826 12.1821 1.3335 8.50016 1.3335C4.81826 1.3335 1.8335 4.31826 1.8335 8.00016C1.8335 11.6821 4.81826 14.6668 8.50016 14.6668Z" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10.5 6.23616C10.1417 5.82996 9.66823 5.5425 9.14254 5.41203C8.61685 5.28155 8.0639 5.31424 7.55725 5.50576C7.0506 5.69728 6.61429 6.03854 6.30636 6.48414C5.99843 6.92973 5.8335 7.45853 5.8335 8.00016C5.8335 8.5418 5.99843 9.0706 6.30636 9.51619C6.61429 9.96178 7.0506 10.303 7.55725 10.4946C8.0639 10.6861 8.61685 10.7188 9.14254 10.5883C9.66823 10.4578 10.1417 10.1704 10.5 9.76416" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_327_2145">
+                                <rect width="16" height="16" fill="white" transform="translate(0.5)"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    2023 | Developed with ❤️️ by Harry Nguyen
+                </footer>
             </div>
         </div>
         <script>
@@ -318,10 +335,39 @@
                         ],
                         projects: [
                             {
+                                title: "Genealogy App",
+                                des: "The genealogy management system are simplifying family history with seamless family tree tracking, event management, and financial oversight. Additionally, it helps members discover their origins and understand family relationships effortlessly by sharing internal posts.",
+                                textDevelopBy: "Product Owner",
+                                urlImage: "src/assets/images/projects/genealogy.gif",
+                                teamSize: 3,
+                                responsibilities: [
+                                    "Fullstack developer",
+                                    "Design system architecture",
+                                    "Researching ideals and solutions",
+                                    "Product Owner",
+                                ],
+                                technicals: [
+                                    "NestJS",
+                                    "Vue 3",
+                                    "MongoDB",
+                                    "AWS EC2",
+                                    "AWS S3",
+                                    "Pinia",
+                                    "Passport",
+                                    "JWT",
+                                    "Nodemailer",
+                                    "Docker",
+                                    "PM2",
+                                    "Github Action",
+                                    "Vercel Development",
+                                ],
+                            },
+                            {
                                 title: "Straumann",
                                 des: "CMS for dental implants and specialized in related technologies",
                                 developBy: "src/assets/images/company-logo/owt.svg",
                                 urlImage: "src/assets/images/projects/straumann.webp",
+                                teamSize: 36,
                                 responsibilities: [
                                     "React Developer",
                                     "Working on micro-frontend",
@@ -344,6 +390,7 @@
                                 des: "Family management - manage tasks, shopping, gifts, use ChatGPT to suggest dish and how to making that",
                                 developBy: "src/assets/images/company-logo/owt.svg",
                                 urlImage: "src/assets/images/projects/famhive.png",
+                                teamSize: 7,
                                 responsibilities: [
                                     "Backend Developer",
                                     "Discussing and finding solution for team",
@@ -352,11 +399,37 @@
                                 technicals: ["Nest", "AWS", "S3", "Docker", "Postgres", "SES", "cron Jobs", "Swagger"],
                             },
                             {
+                                title: "Carbon Transparency",
+                                des: "emission management of energy factories",
+                                urlImage: "src/assets/images/projects/ct.png",
+                                developBy: "src/assets/images/company-logo/atomiton.png",
+                                teamSize: 8,
+                                responsibilities: [
+                                    "Main Angular Developer.",
+                                    "UI development and analysis UI/UX",
+                                    "Handler large mock data on frontend in the same time (over 300M) - Only for first demo",
+                                    "Get requirements and pick up the task",
+                                    "Help BE handle almost logic and data flow",
+                                ],
+                                technicals: [
+                                    "Angular",
+                                    "Typescript",
+                                    "Scss",
+                                    "Angular Material",
+                                    "TQL",
+                                    "RxJS",
+                                    "NgRX",
+                                    "Highcharts",
+                                    "GoJS",
+                                ],
+                            },
+                            {
                                 title: "Chevron",
                                 des: "CMS for truck, oil, and gas, station... and monitor IoT",
                                 developBy: "src/assets/images/company-logo/atomiton.png",
                                 urlImage: "src/assets/images/projects/chevron.png",
                                 responsibilities: ["Angular Developer", "Maintain and develop new modules"],
+                                teamSize: 11,
                                 technicals: [
                                     "Angular",
                                     "Typescript",
@@ -373,6 +446,7 @@
                                 urlImage: "src/assets/images/projects/vopak.png",
                                 developBy: "src/assets/images/company-logo/atomiton.png",
                                 responsibilities: ["Main Angular Developer", "Analysis UI/UX", "Project presentation"],
+                                teamSize: 6,
                                 technicals: [
                                     "Angular",
                                     "Typescript",
@@ -389,6 +463,7 @@
                                 des: "CMS TQL Api for all projects of Atomiton (it is used to the user can create models, edit backend source, edit and add multi endpoint URL for the application, crud runtime, deploy projects and update BD easily and the user can test API similar postman app)",
                                 urlImage: "src/assets/images/projects/studio.png",
                                 developBy: "src/assets/images/company-logo/atomiton.png",
+                                teamSize: 6,
                                 responsibilities: [
                                     "Main Angular Developer.",
                                     "Analysis UI/UX.",
@@ -408,31 +483,7 @@
                                     "Highcharts",
                                     "GoJS",
                                 ],
-                            },
-                            {
-                                title: "Carbon Transparency",
-                                des: "emission management of energy factories",
-                                urlImage: "src/assets/images/projects/ct.png",
-                                developBy: "src/assets/images/company-logo/atomiton.png",
-                                responsibilities: [
-                                    "Main Angular Developer.",
-                                    "UI development and analysis UI/UX",
-                                    "Handler large mock data on frontend in the same time (over 300M)",
-                                    "Get requirements and pick up the task",
-                                    "Help BE handle almost logic and data flow",
-                                ],
-                                technicals: [
-                                    "Angular",
-                                    "Typescript",
-                                    "Scss",
-                                    "Angular Material",
-                                    "TQL",
-                                    "RxJS",
-                                    "NgRX",
-                                    "Highcharts",
-                                    "GoJS",
-                                ],
-                            },
+                            }
                         ],
                     };
                 },
