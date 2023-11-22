@@ -20,7 +20,7 @@
                 <header class="container px-10 mx-auto flex items-center justify-between">
                     <img class="header-icon" src="src/assets/images/icon.png" alt="Icon" />
                     <div class="flex items-center divide-x divide-midnight">
-                        <div class="flex gap-7">
+                        <div class="hidden md:flex gap-7">
                             <a class="text-water" href="#home">Home</a>
                             <a class="text-water" href="#about-me">About</a>
                             <a class="text-water" href="#skills">Tech Stacks</a>
@@ -43,7 +43,7 @@
                 </header>
             </div>
             <div id="home" class="home py-24">
-                <div class="container px-10 m-auto flex items-center justify-between gap-x-24">
+                <div class="container flex-col-reverse md:flex-row px-10 m-auto flex items-center justify-between gap-24">
                     <div data-aos="fade-right" class="home-des">
                         <h1 class="text-h1 text-4xl font-bold text-alice-blue">Hi, I’m Harry 👋</h1>
                         <p class="text-water mt-3">
@@ -66,7 +66,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-2/5">
+                    <div class="w-full md:w-2/5 flex justify-center">
                         <div data-aos="fade-left" class="personal-img-wrapper flex justify-center items-center">
                             <div class="personal-img"></div>
                         </div>
@@ -83,9 +83,9 @@
                             Curious about me? Here you have it:
                         </h3>
                         <div class="mt-6 flex flex-col gap-4 text-water">
-                            <div class="flex gap-4">
-                                <div class="w-1/2 pr-2" data-aos="fade-right">
-                                    <p class="text-justify">
+                            <div class="flex flex-col md:flex-row gap-4">
+                                <div class="md:w-1/2 md:pr-2" data-aos="fade-right">
+                                    <p>
                                         I began my journey as a web developer in 2019, and since then, I've continued to
                                         grow and evolve as a developer, taking on new challenges and learning the latest
                                         technologies along the way. Now, in my early thirties, 4 years after starting my
@@ -94,12 +94,12 @@
                                         more.
                                     </p>
                                 </div>
-                                <div class="w-1/2 flex flex-col gap-4 pl-2" data-aos="fade-left">
-                                    <p class="text-justify">
+                                <div class="md:w-1/2 flex flex-col gap-4 md:pl-2" data-aos="fade-left">
+                                    <p>
                                         The main of my work is about building CMS, I have about 4 years of experience
                                         working for a start-up in the US.
                                     </p>
-                                    <p class="text-justify">
+                                    <p>
                                         Learning new languages and technologies is my passion. I always want to help
                                         people grow in their abilities. I am researching system design
                                     </p>
@@ -178,11 +178,11 @@
                         </div>
                     </div>
                     <div class="flex flex-col gap-12 mt-12">
-                        <div class="experience-details-item flex overflow-hidden" v-for="experience in experiences">
-                            <div class="company-logo-wrapper w-1/4 p-8" data-aos="fade-right">
-                                <img :src="experience.urlLogoCompany" alt="" class="max-h-9 max-w-full" />
+                        <div class="experience-details-item flex flex-col md:flex-row overflow-hidden" v-for="experience in experiences">
+                            <div class="company-logo-wrapper md:w-1/4 p-8" data-aos="fade-right">
+                                <img :src="experience.urlLogoCompany" alt="" class="max-h-9 max-w-full mx-auto md:mx-0" />
                             </div>
-                            <div class="w-1/2 p-8" data-aos="fade-down">
+                            <div class="md:w-1/2 p-8" data-aos="fade-down">
                                 <div class="text-2xl text-alice-blue font-bold">{{experience.title}}</div>
                                 <div class="mt-4 flex-col flex gap-3 text-water">
                                     <div class="flex-col flex gap-1.5" v-for="res in experience.Responsibilities">
@@ -195,7 +195,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="w-1/4 p-8 text-water" data-aos="fade-left">
+                            <div class="md:w-1/4 md:pt-8 pb-8 px-8 text-water" data-aos="fade-left">
                                 <div class="leading-8">{{experience.duration}}</div>
                             </div>
                         </div>
@@ -214,12 +214,12 @@
                     </div>
                     <div class="mt-12 flex-col flex gap-12">
                         <div
-                            class="project flex overflow-hidden"
+                            class="project flex flex-col md:flex-row overflow-hidden"
                             v-for="(project, index) in projects"
-                            :class="{'flex-row-reverse': index % 2 === 1}"
+                            :class="{'md:flex-row-reverse': index % 2 === 1}"
                         >
                             <div
-                                class="w-1/2 p-12 project-review relative flex items-center"
+                                class="md:w-1/2 md:p-12 project-review relative flex items-center"
                                 :data-aos="index % 2 === 1 ? 'fade-left' : 'fade-right'"
                             >
                                 <img class="block img w-full max-w-full" :src="project.urlImage" alt="" />
@@ -229,7 +229,7 @@
                                 </div>
                             </div>
                             <div
-                                class="w-1/2 p-12 project-summary text-water"
+                                class="md:w-1/2 p-8 md:p-12 project-summary text-water"
                                 :data-aos="index % 2 === 0 ? 'fade-left' : 'fade-right'"
                             >
                                 <div class="text-xl text-alice-blue font-bold">{{project.title}}</div>
